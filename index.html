@@ -1,1 +1,323 @@
-1
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Еженедельный отчёт: Неделя 7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Исправление для Google Sites */
+        html, body {
+            height: auto !important;
+            min-height: 1px !important;
+            overflow: visible !important; 
+        }
+
+        /* Анимация для плавного появления блоков */
+        .fade-in-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Стилизация радио-кнопок */
+        .form-radio {
+            appearance: none; -webkit-appearance: none;
+            width: 1.5rem; height: 1.5rem;
+            border: 2px solid #4b5563;
+            border-radius: 50%;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+        }
+        .form-radio:checked {
+            border-color: #2dd4bf; /* teal-400 */
+        }
+        .form-radio:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.75rem; height: 0.75rem;
+            background-color: #2dd4bf; /* teal-400 */
+            border-radius: 50%;
+        }
+        /* Подсветка текста при выборе */
+        .form-radio:checked ~ span {
+            color: #2dd4bf; /* teal-400 */
+        }
+        
+        /* Стилизация текстовых полей */
+        .form-textarea {
+            background-color: #374151; border: 1px solid #4b5563;
+            border-radius: 0.5rem; padding: 0.75rem; width: 100%;
+            color: #d1d5db; transition: all 0.2s;
+            min-height: 100px; resize: vertical;
+        }
+        .form-textarea:focus {
+            outline: none; border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <div id="main-container" class="container mx-auto max-w-3xl p-4 sm:p-8">
+        
+        <!-- Заголовок -->
+        <header class="text-center mb-10 fade-in-item">
+            <h1 class="text-3xl sm:text-4xl font-bold text-white">
+                📝 Отчёт по 7-й неделе
+            </h1>
+            <p class="mt-4 text-base text-gray-400 max-w-2xl mx-auto">Тема недели: Результаты, самооценка и ощущение "я сделал недостаточно".</p>
+        </header>
+
+        <!-- Вступительный блок -->
+        <div class="bg-gray-800 rounded-2xl p-6 mb-10 text-center fade-in-item" style="animation-delay: 100ms;">
+             <p class="text-lg text-gray-300 mb-4">Ты уже прошёл 7 недель. Это колоссальная работа. Но именно сейчас в голову часто приходят такие мысли:</p>
+             <div class="flex flex-wrap justify-center gap-3">
+                <span class="bg-red-900/50 text-red-300 text-sm font-medium px-4 py-2 rounded-full border border-red-500/50">"я мало сделал"</span>
+                <span class="bg-red-900/50 text-red-300 text-sm font-medium px-4 py-2 rounded-full border border-red-500/50">"это не то, на что я рассчитывал"</span>
+                <span class="bg-red-900/50 text-red-300 text-sm font-medium px-4 py-2 rounded-full border border-red-500/50">"другие лучше"</span>
+             </div>
+             <p class="text-lg text-gray-300 mt-4">Это не реальность это старая установка. А теперь давай зафиксируем, что есть на самом деле.</p>
+        </div>
+
+        <!-- Блоки с вопросами -->
+        <main class="space-y-8">
+            
+            <!-- Блок 1: Питание -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item" style="animation-delay: 200ms;">
+                <h3 class="font-bold text-2xl text-white mb-6">🔹 1. Питание и ритм</h3>
+                <div class="space-y-6">
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Как ты питался на этой неделе?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="nutrition_plan" value="Почти полностью по плану" class="form-radio mr-3"><span class="transition-colors">Почти полностью по плану</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="nutrition_plan" value="С небольшими отклонениями, но осознанно" class="form-radio mr-3"><span class="transition-colors">С небольшими отклонениями, но осознанно</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="nutrition_plan" value="Питание было нестабильным" class="form-radio mr-3"><span class="transition-colors">Питание было нестабильным</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="nutrition_plan" value="Почти не следовал системе" class="form-radio mr-3"><span class="transition-colors">Почти не следовал системе</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Как ты реагировал, если питание "сбивалось"?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="reaction_to_slip" value="Спокойно, возвращался в ритм" class="form-radio mr-3"><span class="transition-colors">Спокойно, возвращался в ритм</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="reaction_to_slip" value="Немного нервничал, но продолжал" class="form-radio mr-3"><span class="transition-colors">Немного нервничал, но продолжал</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="reaction_to_slip" value="Откатывался, виня себя" class="form-radio mr-3"><span class="transition-colors">Откатывался, виня себя</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="reaction_to_slip" value="Откровенно сливался" class="form-radio mr-3"><span class="transition-colors">Откровенно сливался</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Стал ли ты меньше "есть эмоции" по сравнению с прошлой неделей?</p>
+                         <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="emotional_eating" value="Да, заметно" class="form-radio mr-3"><span class="transition-colors">Да, заметно</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="emotional_eating" value="Чуть-чуть" class="form-radio mr-3"><span class="transition-colors">Чуть-чуть</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="emotional_eating" value="Почти не изменилось" class="form-radio mr-3"><span class="transition-colors">Почти не изменилось</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="emotional_eating" value="Нет, стало сложнее" class="form-radio mr-3"><span class="transition-colors">Нет, стало сложнее</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок 2: Тренировки -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item" style="animation-delay: 300ms;">
+                <h3 class="font-bold text-2xl text-white mb-6">🔹 2. Тренировки и действия</h3>
+                <div class="space-y-6">
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Сколько тренировок ты выполнил?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="workouts_done" value="Все" class="form-radio mr-3"><span class="transition-colors">Все</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="workouts_done" value="3–4" class="form-radio mr-3"><span class="transition-colors">3–4</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="workouts_done" value="1–2" class="form-radio mr-3"><span class="transition-colors">1–2</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="workouts_done" value="Ни одной" class="form-radio mr-3"><span class="transition-colors">Ни одной</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Ты чувствовал в теле прогресс или стабильность?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="body_progress" value="Да, тело стало сильнее и живее" class="form-radio mr-3"><span class="transition-colors">Да, тело стало сильнее и живее</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="body_progress" value="Частично — чувствую потенциал" class="form-radio mr-3"><span class="transition-colors">Частично — чувствую потенциал</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="body_progress" value="Не очень — скорее усталость" class="form-radio mr-3"><span class="transition-colors">Не очень — скорее усталость</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="body_progress" value="Нет — было тяжело, без изменений" class="form-radio mr-3"><span class="transition-colors">Нет — было тяжело, без изменений</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Удалось ли тебе продолжать, даже если не было мотивации?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="persistence" value="Да, действовал по инерции" class="form-radio mr-3"><span class="transition-colors">Да, действовал по инерции</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="persistence" value="Иногда, через силу" class="form-radio mr-3"><span class="transition-colors">Иногда, через силу</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="persistence" value="Почти не получалось" class="form-radio mr-3"><span class="transition-colors">Почти не получалось</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок 3: Самооценка -->
+            <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item" style="animation-delay: 400ms;">
+                <h3 class="font-bold text-2xl text-white mb-6">🔹 3. Работа с самооценкой и установками</h3>
+                <div class="space-y-6">
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Появлялись ли мысли "я мало сделал"?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="self_criticism" value="Да, часто" class="form-radio mr-3"><span class="transition-colors">Да, часто</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="self_criticism" value="Иногда" class="form-radio mr-3"><span class="transition-colors">Иногда</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="self_criticism" value="Почти не было" class="form-radio mr-3"><span class="transition-colors">Почти не было</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-lg mb-3">Ты выполнял упражнение "Доказательства"?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="proof_exercise" value="Да, и оно помогло" class="form-radio mr-3"><span class="transition-colors">Да, и оно помогло</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="proof_exercise" value="Пробовал, но поверхностно" class="form-radio mr-3"><span class="transition-colors">Пробовал, но поверхностно</span></label>
+                            <label class="flex items-center cursor-pointer"><input type="radio" name="proof_exercise" value="Нет" class="form-radio mr-3"><span class="transition-colors">Нет</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="actual_progress" class="font-semibold text-lg">Что ты можешь назвать своим фактическим прогрессом?</label>
+                        <p class="text-sm text-gray-400 mt-1 mb-3">(действия, результаты, привычки)</p>
+                        <textarea id="actual_progress" class="form-textarea" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                    <div>
+                        <label for="self_discovery" class="font-semibold text-lg">Что ты понял о себе за эти 7 недель?</label>
+                        <p class="text-sm text-gray-400 mt-1 mb-3">(установки, внутренние качества, сдвиги)</p>
+                        <textarea id="self_discovery" class="form-textarea" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок 4: Обратная связь -->
+             <div class="bg-gray-800 rounded-2xl shadow-lg p-6 fade-in-item" style="animation-delay: 500ms;">
+                <h3 class="font-bold text-2xl text-white mb-6">🔹 4. Обратная связь</h3>
+                <div class="space-y-6">
+                    <div>
+                        <label for="victory" class="font-semibold text-lg">Что ты считаешь своей победой этой недели?</label>
+                        <textarea id="victory" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                    <div>
+                        <label for="resistance" class="font-semibold text-lg">Что вызвало трудности или внутреннее сопротивление?</label>
+                        <textarea id="resistance" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                    <div>
+                        <label for="feedback_request" class="font-semibold text-lg">Что тебе нужно от меня на следующей, финальной неделе?</label>
+                        <textarea id="feedback_request" class="form-textarea mt-3" placeholder="✍️ (Открытый ответ)"></textarea>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Кнопка и заключение -->
+        <div class="mt-10 text-center text-gray-400 space-y-4 fade-in-item" style="animation-delay: 600ms;">
+             <div class="bg-blue-900/20 border-l-4 border-blue-500 text-blue-200 p-4 rounded-r-lg text-left" role="alert">
+                <p class="font-bold">✅ После заполнения скопируйте ответы и отправьте тренеру на проверку!</p>
+            </div>
+            <div class="pt-4">
+                <button id="copy-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500/50 disabled:bg-gray-600">
+                    Скопировать ответы для тренера
+                </button>
+            </div>
+        </div>
+        
+        <div class="text-center py-10 fade-in-item" style="animation-delay: 700ms;">
+            <p class="text-lg text-gray-400 italic">📍 Ты почти у цели. Главное сейчас не разогнаться и не сдаться. Ты не просто прошёл путь. Ты стал человеком, который продолжает. И этим ты уже победил.</p>
+        </div>
+
+        <!-- Подвал -->
+        <footer class="text-center mt-12 border-t border-gray-700 pt-6">
+            <p class="text-sm text-gray-500">&copy; 2025 г. Все права защищены. Специально для проекта Body balance.</p>
+        </footer>
+
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('main-container');
+            const copyButton = document.getElementById('copy-btn');
+
+            copyButton.addEventListener('click', () => {
+                let reportText = "📝 Отчёт по 7-й неделе\n\n";
+
+                const getAnswer = (selector, type) => {
+                    if (type === 'radio') {
+                        const checked = document.querySelector(`input[name="${selector}"]:checked`);
+                        return checked ? checked.value : "Нет ответа";
+                    } else if (type === 'textarea') {
+                        const element = document.getElementById(selector);
+                        return element.value.trim() || "Нет ответа";
+                    }
+                    return "Ошибка";
+                };
+
+                reportText += "🔹 1. Питание и ритм\n";
+                reportText += `Как питался: ${getAnswer('nutrition_plan', 'radio')}\n`;
+                reportText += `Реакция на сбои: ${getAnswer('reaction_to_slip', 'radio')}\n`;
+                reportText += `Эмоциональная еда: ${getAnswer('emotional_eating', 'radio')}\n\n`;
+
+                reportText += "🔹 2. Тренировки и действия\n";
+                reportText += `Выполнено тренировок: ${getAnswer('workouts_done', 'radio')}\n`;
+                reportText += `Ощущения в теле: ${getAnswer('body_progress', 'radio')}\n`;
+                reportText += `Продолжал без мотивации: ${getAnswer('persistence', 'radio')}\n\n`;
+
+                reportText += "🔹 3. Работа с самооценкой и установками\n";
+                reportText += `Мысли "я мало сделал": ${getAnswer('self_criticism', 'radio')}\n`;
+                reportText += `Выполнял упражнение "Доказательства": ${getAnswer('proof_exercise', 'radio')}\n`;
+                reportText += `Фактический прогресс: ${getAnswer('actual_progress', 'textarea')}\n`;
+                reportText += `Что понял о себе: ${getAnswer('self_discovery', 'textarea')}\n\n`;
+
+                reportText += "🔹 4. Обратная связь\n";
+                reportText += `Победа недели: ${getAnswer('victory', 'textarea')}\n`;
+                reportText += `Трудности/сопротивление: ${getAnswer('resistance', 'textarea')}\n`;
+                reportText += `Пожелания на финальную неделю: ${getAnswer('feedback_request', 'textarea')}\n`;
+
+                const tempTextarea = document.createElement('textarea');
+                tempTextarea.value = reportText;
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                try {
+                    document.execCommand('copy');
+                    copyButton.textContent = '✅ Скопировано!';
+                } catch (err) {
+                    copyButton.textContent = 'Ошибка!';
+                    console.error('Ошибка копирования: ', err);
+                }
+                document.body.removeChild(tempTextarea);
+
+                setTimeout(() => {
+                    copyButton.textContent = 'Скопировать ответы для тренера';
+                }, 2500);
+            });
+
+            if ('ResizeObserver' in window) {
+                const observer = new ResizeObserver(entries => {
+                    if (entries.length > 0) {
+                        const height = entries[0].target.scrollHeight;
+                        document.body.style.height = height + 'px';
+                        document.documentElement.style.height = height + 'px';
+                    }
+                });
+                if (container) observer.observe(container);
+            } else {
+                const resizeFallback = () => {
+                    if(container) document.body.style.height = container.scrollHeight + 'px';
+                };
+                setInterval(resizeFallback, 300);
+                window.addEventListener('resize', resizeFallback);
+            }
+        });
+    </script>
+</body>
+</html>
